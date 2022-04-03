@@ -97,9 +97,8 @@ bookings.put("/:id", async (req, res) => {
 // delete
 bookings.delete("/:id", async (req, res) => {
   try {
-    const { meetingRoomId } = req.params;
     const { id } = req.params;
-    const deletedBooking = await deleteBooking(meetingRoomId, id);
+    const deletedBooking = await deleteBooking(id);
     res.status(200).json({ success: true, payload: deletedBooking });
   } catch (e) {
     res.status(404).statusMessage(e);
