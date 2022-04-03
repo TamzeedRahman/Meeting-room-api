@@ -8,7 +8,7 @@ const bookings = require("./controllers/bookingsController.js");
 const app = express();
 
 // MIDDLEWARE
-app.use(cors());
+app.use(cors({origin: 'https://localhost:3000'}));
 app.use(express.json()); // Parse incoming JSON
 
 // ROUTES

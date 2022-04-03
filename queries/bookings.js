@@ -75,15 +75,15 @@ const updateBooking = async (meetingRoomId, id, booking) => {
 };
 
 /* DELETE */
-const deleteBooking = async (meetingRoomId, id) => {
+const deleteBooking = async (id) => {
   try {
     const deletedBooking = await db.one(
       `
       DELETE FROM bookings
-      WHERE id=$1 AND meeting_room_id=$2
+      WHERE id=$1
       RETURNING *
       `,
-      [id, meetingRoomId]
+      [id]
     );
     return deletedBooking;
   } catch (e) {
