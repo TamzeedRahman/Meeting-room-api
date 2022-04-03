@@ -52,7 +52,7 @@ const createMeetingRoom = async (meetingRoom) => {
 const deleteMeetingRoom = async (id) => {
   try {
     const deletedMeetingRoom = await db.one(
-      "DELETE FROM meetingrooms WHERE id=$1 RETURNING *",
+      "DELETE FROM meetingrooms WHERE id=$1",
       id
     );
     return deletedMeetingRoom;

@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS d6lsrpgi5rjovl;
+DROP DATABASE IF EXISTS d155gujbj874q3;
 
-CREATE DATABASE d6lsrpgi5rjovl;
-\c d6lsrpgi5rjovl;
+CREATE DATABASE d155gujbj874q3;
+\c d155gujbj874q3;
 
 DROP TABLE IF EXISTS meetingrooms CASCADE; 
 CREATE TABLE meetingrooms (

@@ -140,21 +140,13 @@ meetingRooms.put("/:id", validateMeetingRoom, async (req, res, next) => {
 });
 
 // delete
-meetingRooms.delete("/:id", async (req, res, next) => {
-  const { id } = req.params;
+meetingRooms.delete("/:id", async (req, res) => {
   try {
-    const deleted = await deleteMeetingRoom(id);
-    if (deleted.id) {
-      res.status(200).json({
-        success: true,
-        payload: deleted,
-      });
-    } else {
-      const msg = `MeetingRoom not deleted from database: ${id}`;
-      throw new MeetingRoomNotCreatedError(msg);
-    }
+    const { id } = req.params;
+    const deletedMeetingRoom = await deleteMeetingRoom(id);
+    res.status(200).json({ success: true, payload: deletedMeetingRoom});
   } catch (e) {
-    next(e);
+    res.status(404).statusMessage(e);
   }
 });
 
